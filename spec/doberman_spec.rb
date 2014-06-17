@@ -63,7 +63,7 @@ describe Doberman::WatchDog do
         w = Doberman::WatchDog.new(:timeout => 0.1)
         w.start
         w.ping
-        expect { sleep 0.4 }.to raise_error
+        expect { sleep 0.4 }.to raise_error(Doberman::WatchDog::Timeout)
         w.stop
       end
 
